@@ -1,2 +1,3 @@
 # Alabast
-Alabast is a marketplace for activities related to the first sector. The repo includes full stack development, figma prototype and uml diagram
+Alabast is a marketplace for activities related to the primary sector. 
+The repository includes full stack development (MySQL, NODE-Express, Angular) as well as styles, figma prototype and uml diagram
