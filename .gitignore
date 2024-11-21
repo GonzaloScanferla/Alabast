@@ -1,0 +1,6 @@
+# Dependency directories
+BackEnd/node_modules/
+
+BackEnd/.env
+
+*.rest
