@@ -4,3 +4,5 @@ BackEnd/node_modules/
 BackEnd/.env
 
 *.rest
+
+BackEnd/logs/
