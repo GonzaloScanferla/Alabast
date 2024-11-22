@@ -8,8 +8,7 @@ const getPaginationData = require ('../common/utils')
  *
  * @param {import('express').Request} req - The Express request object.
  * @param {import('express').Response} res - The Express response object.
- * @param {import('express').NextFunction} next - The   
- Express next function for error handling.
+ * @param {import('express').NextFunction} next - The Express next function for error handling.
  *
  * @returns {void} Sends a JSON response containing user data and pagination information.
  *
@@ -40,6 +39,29 @@ const getAllUsers = async (req, res, next) => {
     }
 }
 
+/**
+ * Retrieves a user from the database using the ID provided in the request object's `user.id` property.
+ *
+ * @param {import('express').Request} req The Express request object.
+ * @param {import('express').Response} res The Express response object.
+ * @param {import('express').NextFunction} next The Express next function for error handling.
+ *
+ * @returns {Promise<void>} Resolves after sending the user data as JSON in the response.
+ *
+ * @throws {Error} Any error thrown during the user retrieval process.
+ */
+const getUserById = async (req, res, next) => {
+    try {
+        const [user] = await Users.getById(req.user.id)
+
+        res.json(user)
+        
+    } catch (error) {
+        next (error)
+    }
+}
+
 module.exports = {
-    getAllUsers
+    getAllUsers,
+    getUserById
 }
