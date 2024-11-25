@@ -7,8 +7,8 @@
  * @param {import('express').Response} res The Express response object.
  * @param {import('express').NextFunction} next The Express next function.
  */
-const middleware = ((err, req, res, next) => {
+const errorsMiddleware = (err, req, res, next) => {
     res.status(500).json({ error: err.message });
-})
+};
 
-module.exports = middleware
+module.exports = errorsMiddleware;
