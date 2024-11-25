@@ -21,6 +21,16 @@ const getById = (id) => {
     return db.query("select * from users where id = ?", [id]);
 };
 
+
+/**
+ * Retrieves a user from the database by their email address.
+ *
+ * @param {string} email - The email address of the user to retrieve.
+ * @returns {Promise<[Array]>} A promise that resolves to an array containing the user data.
+ *                            If no user is found, the array will be empty.
+ *
+ */
+
 const getByEmail = (email) => {
     return db.query("select * from users where email = ?", [email]);
 };
