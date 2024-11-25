@@ -1,7 +1,6 @@
-const Users = require ('../models/users.model')
-const {getAllCount} = require ('../models/common.model')
-const getPaginationData = require ('../common/utils')
-
+const Users = require("../models/users.model");
+const { getAllCount } = require("../models/common.model");
+const getPaginationData = require("../common/utils");
 
 /**
  * Fetches all users with pagination options.
@@ -16,28 +15,27 @@ const getPaginationData = require ('../common/utils')
  */
 const getAllUsers = async (req, res, next) => {
     try {
-        const page = parseInt(req.query.page) || 1
-        const limit = parseInt(req.query.limit) || 10
-        const offset = (page - 1) * limit
-        
-        const results = {}
-        
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 10;
+        const offset = (page - 1) * limit;
+
+        const results = {};
+
         // Fetch paginated results and total count
-        const [result] = await Users.getAll(limit, offset)
-        const [[usersCount]] = await getAllCount('users')
-        
+        const [result] = await Users.getAll(limit, offset);
+        const [[usersCount]] = await getAllCount("users");
+
         // Extract pagination details
-        const pagination = getPaginationData ( page, limit, usersCount.count )
+        const pagination = getPaginationData(page, limit, usersCount.count);
 
-        results.data = result
-        results.pagination = pagination
+        results.data = result;
+        results.pagination = pagination;
 
-
-        res.json (results)
+        res.json(results);
     } catch (error) {
-        next (error)
+        next(error);
     }
-}
+};
 
 /**
  * Retrieves a user from the database using the ID provided in the request object's `user.id` property.
@@ -50,18 +48,17 @@ const getAllUsers = async (req, res, next) => {
  *
  * @throws {Error} Any error thrown during the user retrieval process.
  */
-const getUserById = async (req, res, next) => {
+const getLoggedUser = async (req, res, next) => {
     try {
-        const [user] = await Users.getById(req.user.id)
+        const [user] = await Users.getById(req.user.id);
 
-        res.json(user)
-        
+        res.json(user);
     } catch (error) {
-        next (error)
+        next(error);
     }
-}
+};
 
 module.exports = {
     getAllUsers,
-    getUserById
-}
+    getLoggedUser,
+};
