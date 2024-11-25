@@ -7,8 +7,8 @@
  * @returns {Promise<Array>} A Promise that resolves to an array of user objects.
  */
 const getAll = (limit, offset) => {
-    return db.query ('select * from users limit ? offset ?', [limit, offset])
-}
+    return db.query("select * from users limit ? offset ?", [limit, offset]);
+};
 
 /**
  * Retrieves a user from the database based on the provided ID.
@@ -18,8 +18,12 @@ const getAll = (limit, offset) => {
  * @returns {Promise<Array>} A Promise that resolves to an array containing the user object.
  */
 const getById = (id) => {
-    return db.query ('select * from users where id = ?', [id])
-}
+    return db.query("select * from users where id = ?", [id]);
+};
+
+const getByEmail = (email) => {
+    return db.query("select * from users where email = ?", [email]);
+};
 
 /**
  * Creates a new user with the provided information.
@@ -34,12 +38,23 @@ const getById = (id) => {
  *
  * @returns {Promise<Array>} A Promise that resolves to an array containing the result of the insert operation.
  */
-const createNew = ({name, lastname1, lastname2, email, birthdate, password}) => {
-    return db.query ('insert into users (name, lastname1, lastname2, email, birthdate, password) values (?, ?, ?, ?, ?, ?) ', [name, lastname1, lastname2, email, birthdate, password])
-}
+const createNew = ({
+    name,
+    lastname1,
+    lastname2,
+    email,
+    birthdate,
+    password,
+}) => {
+    return db.query(
+        "insert into users (name, lastname1, lastname2, email, birthdate, password) values (?, ?, ?, ?, ?, ?) ",
+        [name, lastname1, lastname2, email, birthdate, password]
+    );
+};
 
 module.exports = {
     getAll,
     getById,
-    createNew
-}
+    getByEmail,
+    createNew,
+};
