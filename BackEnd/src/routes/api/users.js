@@ -4,10 +4,13 @@ const {
     getLoggedUser,
 } = require("../../controllers/users.controller");
 
+router.get("/", getAllUsers);
+router.get("/loggedUser", getLoggedUser);
+
+module.exports = router;
+
 /**
  * @swagger
- * tags:
- *   - users
  * /api/users:
  *   get:
  *     summary: Gets an array with the information of all the users
@@ -27,7 +30,7 @@ const {
  *       403:
  *         description: Invalid API key
 
-* /api/users/loggedUser:
+ * /api/users/loggedUser:
  *   get:
  *     summary: Gets an object with the information of the user currently logged
  *     tags: [users]
@@ -36,7 +39,7 @@ const {
  *     parameters:
  *       - name: id
  *         in: query auth token
- *         required: true
+ *         required: false
  *     responses:
  *       200:
  *         description: Success
@@ -44,14 +47,8 @@ const {
  *           application/json:
  *             schema:
  *               type: object
- *               items:
+ *               additionalProperties:
  *                 $ref: '#/components/schemas/User'
  *       403:
  *         description: Invalid API key
- *
  */
-
-router.get("/", getAllUsers);
-router.get("/loggedUser", getLoggedUser);
-
-module.exports = router;

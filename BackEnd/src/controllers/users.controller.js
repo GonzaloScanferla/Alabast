@@ -50,9 +50,14 @@ const getAllUsers = async (req, res, next) => {
  */
 const getLoggedUser = async (req, res, next) => {
     try {
-        const [user] = await Users.getById(req.user.id);
+        const [[user]] = await Users.getById(req.user.id);
 
-        res.json(user);
+        if (user.active === 0) {
+            return res.status(500).json({
+                "error": "The user you are trying to login is not active anymore"
+            })
+        }
+        return res.json(user);
     } catch (error) {
         next(error);
     }
