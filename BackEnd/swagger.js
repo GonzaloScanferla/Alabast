@@ -1,6 +1,7 @@
 const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
 const { usersSchema } = require("./src/schemas/users.schema");
+const { registerSchema } = require("./src/schemas/register.schema");
 
 //Metadata info about API
 const options = {
@@ -23,6 +24,10 @@ const options = {
         ],
         tags: [
             {
+                name: "register",
+                description: "Specific endpoint for registration not controlled by authorization",
+            },
+            {
                 name: "users",
                 description: "All the information about the users",
             },
@@ -37,7 +42,21 @@ const options = {
                     "All the information about the public profile as the sellers",
             },
         ],
-        ...usersSchema,
+        components: {
+            securitySchemes: {
+                ...usersSchema.components.securitySchemes,
+                ...registerSchema.components.securitySchemes,
+            },
+            schemas: {
+                ...usersSchema.components.schemas,
+                ...registerSchema.components.schemas,
+            },
+        },
+        security: [
+            {
+                Authorization: [],
+            },
+        ],
     },
     apis: ["./src/routes/api/*.js"],
 };
