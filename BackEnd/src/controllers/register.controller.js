@@ -1,7 +1,6 @@
-
-const User = require('../models/users.model')
-const {createToken} = require ('../common/JWTLogin')
-const bcrypt = require ('bcrypt')
+const User = require("../models/users.model");
+const { createToken } = require("../common/JWTLogin");
+const bcrypt = require("bcrypt");
 
 /**
  * Handles the creation of a new user by:
@@ -17,27 +16,42 @@ const bcrypt = require ('bcrypt')
  * @returns {void} Sends a JSON response with a success flag and a generated token.
  */
 const createNewUser = async (req, res, next) => {
-
     // Password encryption
-    req.body.password = bcrypt.hashSync(req.body.password, 10)
+    req.body.password = bcrypt.hashSync(req.body.password, 10);
 
     try {
+        // Check if the email already exists and eventually retrieves it's information
+        const [[user]] = await User.getByEmail(req.body.email)
 
-        const [response] = await User.createNew (req.body)
+        if (user.active == 1) {
+            // Active user found, send 409 Conflict response
+            return res.status(409).json({
+                "error": "Conflict",
+                "message": "The email is already in use."
+            })
+        } 
+        if (user.active == 0) {
+        // Deactivated user found, send 403 Forbidden response
+            return res.status(403).json({
+                "error": "Forbidden",
+                "message": "The email exists but is deactivated."
+            })
+        }
 
-        const [[newUser]] = await User.getById (response.insertId)
+        const [response] = await User.createNew(req.body);
+
+        const [[newUser]] = await User.getById(response.insertId);
 
         // the new user data is used to generate the login token. By default the parameter rememberSession of createToken is set to false
-        res.json({
+        return res.status(201).json({
             success: true,
-            token: createToken (newUser, false)
-        })
-
+            token: createToken(newUser, false),
+        });
     } catch (error) {
-        next (error)
+        next(error);
     }
-}
+};
 
 module.exports = {
-    createNewUser
-}
+    createNewUser,
+};
