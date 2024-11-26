@@ -20,7 +20,7 @@ module.exports = router
  *                 $ref: '#/components/schemas/Login'
  *     responses:
  *       401:
- *         description: Incorrect email or password.
+ *         description: The respponse can be "Incorrect email or password" or "The selected user is not active".
  *       200:
  *         description: Success
  *         content:
