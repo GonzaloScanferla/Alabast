@@ -3,6 +3,15 @@ const bcrypt = require('bcrypt')
 const { getByEmail } = require('../models/users.model')
 const { createToken } = require ('../common/JWTLogin')
 
+/**
+ * Handles user login requests.
+ *
+ * @param {Object} req The request object.
+ * @param {Object} res The response object.
+ * @param {Function} next The next middleware function.
+ *
+ * @throws {Error} If required fields are missing or the user credentials are invalid.
+ */
 const login = async (req, res, next) => {
     try {
         const { email, password, rememberSession } = req.body;
