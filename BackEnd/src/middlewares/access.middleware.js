@@ -20,7 +20,7 @@ const checkToken = (req, res, next) => {
   try {
     payload = jwt.verify(token, process.env.PRIVATE_KEY);
   } catch (error) {
-    return res.status(500).json(error)
+    return res.status(403).json(error)
   }
 
   req.user = payload;
