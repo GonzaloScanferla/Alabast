@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* variables and text fonts */
+:root {
+    --color__dGreen: #549926;
+    --color__dBlue: #267199;
+    --color__black: #000000;
+    --color__black--transparent: #FFFFFF25;
+    --color__white: #FFFFFF;
+    --color__lBlue: #709AAC;
+    --color__dRed: #94262F;
+    --color__lGreen: #74C66D;
+    --color__yellow: #FFDA71;
+    --color__brown: #AD7B59;
+    --color__tomato: #F2635F;
+    --color__grey: #85807F;
+    --color__lBrown: #E5DCCE;
+    --color__backgroundBrown: #FAF7F2;
+
+    --fontStyle__roboto: "Roboto Slab", serif;
+    --fontStyle__thasadith: "Thasadith", sans-serif;
+    --fontStyle__chivoMono: "Chivo Mono", monospace;
+    --fontStyle__delius: "Delius Swash Caps", cursive;
+
+    --fontSize_XXL : 4rem;
+    --fontSize_XL : 3rem;
+    --fontSize_L : 2rem;
+    --fontSize_M : 1.3rem;
+    --fontSize_S : 0.9rem;
+    --fontSize_XS : 0.5rem;
+}
+
+/* html reset */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing : border-box;
+    min-width: 0;
+}
+
+body {
+    min-height: 100dvh;
+}
+
+h1, h2, h3, h4 {
+    text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+/* main styles */
+
+h1 {
+  font-family: var(--fontStyle__roboto);
+  font-optical-sizing: auto;
+  font-size: var(--fontSize_XXL);
+  font-weight: 800;
+  font-style: normal;
+  color: var(--color__grey);
+}
+
+h2 {
+    font-family: var(--fontStyle__roboto);
+    font-optical-sizing: auto;
+    font-size: var(--fontSize_XL);
+    font-weight: 800;
+    font-style: normal;
+    color: var(--color__grey);
+}
+
+h3 {
+    font-family: var(--fontStyle__roboto);
+    font-optical-sizing: auto;
+    font-size: var(--fontSize_L);
+    font-weight: 700;
+    font-style: normal;
+    color: var(--color__grey);
+}
+
+p {
+    font-family: var(--fontStyle__thasadith);
+    font-size: var(--fontSize_M);
+    color: var(--color__grey);
+}
+
+.p--small {
+    font-size: var(--fontSize_S);
+}
+
+.p--monospace {
+   font-family: var(--fontStyle__chivoMono); 
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 40
+}
+
+.buttonText {
+    color: var(--color__dBlue);
+    font-weight: 800;
+}
+
+.button {
+    background-color: var(--color__white);
+    border: 1px solid var(--color__dBlue);
+    align-items: center;
+    
+    &:hover {
+        background-color: var(--color__dBlue);
+        border: 1px solid var(--color__white);
+        
+        .buttonText {
+            color: var(--color__white);
+        }
+    }
+}
+
+
+
+/* colors */
+.color__dGreen {
+    color : var(--color__dGreen);
+}
+.color__dBlue {
+    color : var(--color__dBlue);
+}
+.color__black {
+    color : var(--color__black);
+}
+.color__white {
+    color : var(--color__white);
+}
+.color__lBlue {
+    color : var(--color__lBlue);
+}
+.color__dRed {
+    color : var(--color__dRed);
+}
+.color__yellow {
+    color : var(--color__yellow);
+}
+.color__brown {
+    color : var(--color__brown);
+}
+.color__tomato {
+    color : var(--color__tomato);
+}
+.color__lGreen {
+    color : var(--color__lGreen);
+}
+.color__grey {
+    color : var(--color__grey);
+}
+.color__lBrown {
+    color : var(--color__lBrown);
+}
+.color__backgroundBrown {
+    color : var(--color__backgroundBrown);
+}
+
+.backgroundColor__lBrown {
+    background-color: var(--color__lBrown);
+}
+
+/* text shadows */
+.shadow__carve-blue {
+    color: transparent;
+    background-color: var(--color__dBlue);
+    text-shadow: 0px 4px 4px var(--color__black--transparent);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+}
+.shadow__carve-tomato {
+    color: transparent;
+    background-color: var(--color__tomato);
+    text-shadow: 0px 3px 2px var(--color__black--transparent);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+}
