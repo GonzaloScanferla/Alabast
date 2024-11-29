@@ -1,3 +1,20 @@
-<p class="text-3xl font-bold underline">navbar works!</p>
-
-<router-outlet />
+<nav class="py-2 px-5 backgroundColor__lBrown">
+    <div class=" flex items-center justify-between">
+        <div class="flex items-center">
+            <img class = "icon" src="assets/ALABAST_FILL.svg" alt="">
+            <p class="logo ">Alabast</p>
+        </div>
+        <div>
+            <app-button-category/>
+        </div>
+        <div class="flex items-center gap-1">
+            <app-button-important/>
+            <div class="loginButton flex border-2 px-3 py-2 justify-center">
+                <span class="material-symbols-outlined align-middle text-3xl">mood</span>
+            </div>
+            <div class="button languageButton flex items-center justify-center">
+                <p class="p--small buttonText text-center">CAT</p>
+            </div>
+        </div>
+    </div>
+</nav>
