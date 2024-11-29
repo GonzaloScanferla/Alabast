@@ -1,0 +1,38 @@
+.icon {
+    display: inline-block;
+    aspect-ratio: 1;
+    height: 50px;
+}
+
+.logo {
+    display: inline-block;
+    font-family: var(--fontStyle__delius);
+    font-weight: 600;
+    font-style: normal;
+    font-size: var(--fontSize_L);
+    color: var(--color__dGreen);
+    text-align: center;
+}
+
+.loginButton{
+    background-color: var(--color__dGreen);
+    color: var(--color__white);
+    width: 55px;
+    height: 55px;
+    border: 2px, solid rgba(255, 255, 255, 0);
+    
+    &:hover {
+        background-color: var(--color__white);
+        color: var(--color__dGreen);
+        border: 2px solid var(--color__dGreen)
+    }
+}
+
+.languageButton {
+    width: 55px;
+    height: 55px;
+    border-radius: 30px;
+}
+
+
+
