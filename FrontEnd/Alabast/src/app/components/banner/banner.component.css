@@ -1,0 +1,47 @@
+.background {
+    height: 80vh; 
+    width: 100vw;
+}
+
+.arrow {
+    height: 80vh;
+    width: 2.5vw;
+    top: 50%; 
+    transform: translateY(-50%); 
+}
+
+.arrow_prev {
+    left: 0; 
+}
+
+.arrow_next {
+    right: 0; 
+}
+
+.arrow img {
+    width: 100%;
+    height: auto;
+    fill: var(--color__grey);
+    object-fit: contain;
+}
+
+.title {
+    width: 50%;
+}
+
+.imageContainer {
+    height: 80%;
+}
+
+.image {
+    height: 100%;
+    max-height: 100%;
+}
+
+.backgroundColor__lBlue {
+    background-color: var(--color__lBlue);
+}
+
+.backgroundColor__pink {
+    background-color: #FABFBD;
+}

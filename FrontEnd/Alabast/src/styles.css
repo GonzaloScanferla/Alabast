@@ -7,7 +7,7 @@
     --color__dGreen: #549926;
     --color__dBlue: #267199;
     --color__black: #000000;
-    --color__black--transparent: #FFFFFF25;
+    --color__black--transparent: #FFFFFF50;
     --color__white: #FFFFFF;
     --color__lBlue: #709AAC;
     --color__dRed: #94262F;
@@ -24,12 +24,12 @@
     --fontStyle__chivoMono: "Chivo Mono", monospace;
     --fontStyle__delius: "Delius Swash Caps", cursive;
 
-    --fontSize_XXL : 4rem;
-    --fontSize_XL : 3rem;
-    --fontSize_L : 2rem;
-    --fontSize_M : 1.3rem;
-    --fontSize_S : 0.9rem;
-    --fontSize_XS : 0.5rem;
+    --fontSize_XXL : 5vw;
+    --fontSize_XL : 3.5vw;
+    --fontSize_L : 2.8vw;
+    --fontSize_M : 1.7vw;
+    --fontSize_S : 1.3vw;
+    --fontSize_XS : 0.8vw;
 }
 
 /* html reset */

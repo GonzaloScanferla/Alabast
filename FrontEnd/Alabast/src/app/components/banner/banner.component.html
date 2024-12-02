@@ -1,0 +1,38 @@
+<div class="relative">
+    <div class="arrow arrow_prev absolute flex items-center" (click)="banner_change($event)">
+        <img src="/assets/arrow_back.svg" alt="anterior" id="prev">
+    </div>
+    @if (banner_number === 1 ) {
+        <div class="backgroundColor__lBrown background flex items-center gap-4 pl-20 pr-8 py-5">
+            <div class="title">
+                <h1 class="shadow__carve-blue text-center">Descobreix <span class="shadow__carve-tomato">tot</span> el que el <span class="shadow__carve-tomato text-nowrap">MON RURAL</span> pot oferir</h1>
+            </div>
+            <div class="imageContainer flex items-center">
+                <img src="/assets/banner-farmer-woman.svg" alt="Descubre lo que la tierra te puede ofrecer" class="image">
+            </div>
+        </div>
+    }
+    @if (banner_number === 2 ){
+        <div class="backgroundColor__lBlue background flex items-center gap-10">
+            <div class="imageContainer flex items-center">
+                <img src="/assets/banner-pink-round-farm.svg" alt="Descubre lo que la tierra te puede ofrecer" class="image">
+            </div>
+            <div class="title">
+                <h1 class="shadow__carve-blue px-8 py-5 text-center">Descobreix <span class="shadow__carve-tomato">tot</span> el que el <span class="shadow__carve-tomato text-nowrap">MON RURAL</span> pot oferir</h1>
+            </div>
+        </div>
+    }
+    @if (banner_number === 3 ){
+        <div class="backgroundColor__pink background flex items-center gap-10">
+            <div class="imageContainer flex items-center">
+                <img src="/assets/banner-pink-round-farm.svg" alt="Descubre lo que la tierra te puede ofrecer" class="image">
+            </div>
+            <div class="title">
+                <h1 class="shadow__carve-blue px-8 py-5 text-center">Descobreix <span class="shadow__carve-tomato">tot</span> el que el <span class="shadow__carve-tomato text-nowrap">MON RURAL</span> pot oferir</h1>
+            </div>
+        </div>
+    }
+    <div class="arrow arrow_next absolute flex items-center" (click)="banner_change($event)">
+        <img src="/assets/arrow_forward.svg" alt="següent" id="next">
+    </div>
+</div>
