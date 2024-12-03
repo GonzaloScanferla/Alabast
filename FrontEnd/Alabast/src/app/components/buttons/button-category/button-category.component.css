@@ -13,3 +13,15 @@
 .material-symbols-outlined {
     color: var(--color__dBlue);
 }
+
+.overlay {
+    width: 700px;
+    height: 400px;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.overlay ::-webkit-scrollbar {
+  display: none; 
+}
