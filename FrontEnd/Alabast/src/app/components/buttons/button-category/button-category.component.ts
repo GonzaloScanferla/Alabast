@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { CardMicroComponent } from '../../card-micro/card-micro.component';
+import { ButtonMoreComponent } from '../button-more/button-more.component';
 
 interface ICategory {
   text: string,
@@ -9,7 +10,7 @@ interface ICategory {
 
 @Component({
   selector: 'app-button-category',
-  imports: [CardMicroComponent],
+  imports: [CardMicroComponent, ButtonMoreComponent],
   templateUrl: './button-category.component.html',
   styleUrl: './button-category.component.css'
 })
