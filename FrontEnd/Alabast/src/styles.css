@@ -7,7 +7,7 @@
     --color__dGreen: #549926;
     --color__dBlue: #267199;
     --color__black: #000000;
-    --color__black--transparent: #FFFFFF25;
+    --color__black--transparent: #FFFFFF50;
     --color__white: #FFFFFF;
     --color__lBlue: #709AAC;
     --color__dRed: #94262F;
@@ -25,11 +25,11 @@
     --fontStyle__delius: "Delius Swash Caps", cursive;
 
     --fontSize_XXL : 4rem;
-    --fontSize_XL : 3rem;
-    --fontSize_L : 2rem;
-    --fontSize_M : 1.3rem;
-    --fontSize_S : 0.9rem;
-    --fontSize_XS : 0.5rem;
+    --fontSize_XL : 3.2rem;
+    --fontSize_L : 2.4rem;
+    --fontSize_M : 1.5rem;
+    --fontSize_S : 1.3rem;
+    --fontSize_XS : 1rem;
 }
 
 /* html reset */
@@ -52,6 +52,7 @@ h1, h2, h3, h4 {
 p {
     text-wrap: pretty;
 }
+
 
 /* main styles */
 
@@ -82,14 +83,25 @@ h3 {
     color: var(--color__grey);
 }
 
-p {
-    font-family: var(--fontStyle__thasadith);
+h4 {
+    font-family: var(--fontStyle__roboto);
+    font-optical-sizing: auto;
     font-size: var(--fontSize_M);
+    font-weight: 700;
+    font-style: normal;
     color: var(--color__grey);
 }
 
-.p--small {
+p {
+    font-family: var(--fontStyle__thasadith);
     font-size: var(--fontSize_S);
+    color: var(--color__grey);
+}
+
+
+
+.p--small {
+    font-size: var(--fontSize_XS);
 }
 
 .p--monospace {

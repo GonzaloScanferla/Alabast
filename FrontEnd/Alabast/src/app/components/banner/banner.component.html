@@ -1,0 +1,56 @@
+<div class="relative">
+    <div class="arrow arrow_prev absolute flex items-center pl-2" (mouseover)="banner_change($event)">
+        <img src="/assets/arrow_back.svg" alt="anterior" id="prev">
+    </div>
+
+    <div class="banner-container" [@bannerAnimation]="banner_number">
+        @if (banner_number === 1) {
+        <div class="h-full backgroundColor__lBrown background flex items-center gap-4 pl-20 pr-8 py-5">
+            <div class="title">
+            <h2 class="shadow__carve-blue text-center">
+                Troba en un sol lloc <span class="shadow__carve-tomato text-nowrap">tot el</span> que el
+                <span class="shadow__carve-tomato  text-nowrap XXL">MON RURAL</span> pot oferir
+            </h2>
+            <p class="text-center M font-bold">Fires, mercats, activitats, visites, xerrades, excursions, gastronomía, productors... i molt més!</p>
+            </div>
+            <div class="imageContainer flex items-center">
+                <img src="/assets/banner-farmer-woman.svg" alt="Descubre lo que la tierra te puede ofrecer" class="image">
+            </div>
+        </div>
+        }
+        @if (banner_number === 2) {
+            <div class="h-full  backgroundColor__aqua background flex items-center gap-4 pr-20 pl-20 py-5">
+                <div class="imageContainer flex items-center">
+                    <img src="/assets/banner-pink-round-farm.svg" alt="Descubre lo que la tierra te puede ofrecer" class="image">
+                </div>
+                <div class="title">
+                    <h1 class="shadow__carve-blue M py-2 text-center">
+                        Ets <span class="shadow__carve-tomato">productor</span> i vols promocionar les teves activitats?
+                    </h1>
+                    <h1 class="shadow__carve-blue M text-center">
+                        Ets <span class="shadow__carve-tomato">consumidor</span> i vols viure noves experiències?
+                    </h1>
+                    <h1 class="shadow__carve-green  py-3 text-center XL">Alabast és el teu lloc!</h1>
+                    <p class="text-center M font-bold">El punt de trobada per als amants de la terra i els seus productes.</p>
+                </div>
+            </div>
+        }
+        @if (banner_number === 3) {
+            <div class="h-full backgroundColor__pink background flex items-center gap-4 pr-16 pl-20 py-5">
+                <div class="imageContainer flex flex-col items-center">
+                <img src="/assets/banner-computer-inspiration.svg" alt="Descubre lo que la tierra te puede ofrecer" class="image">
+                </div>
+                <div class="title">
+                    <h1 class="shadow__carve-blue px-8 py-5 text-center L">
+                        Registra't <span class="shadow__carve-tomato XL">GRATIS</span> i comença ja a promocionar el teu negoci!
+                    </h1>
+                    <p class="text-center M font-bold">Ets un productor i vols atraure nous clients per les teves activitats? Estas a pocs clicks de poder-te donar a coneixer i trobar els teus futurs clients!</p>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="arrow arrow_next absolute flex items-center pr-2" (mouseover)="banner_change($event)">
+        <img src="/assets/arrow_forward.svg" alt="següent" id="next">
+    </div>
+</div>

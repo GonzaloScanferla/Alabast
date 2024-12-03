@@ -1,0 +1,76 @@
+.banner-container {
+  position: relative;
+  height: 85dvh;
+  width: 100%;
+}
+
+.arrow {
+  height: 80dvh;
+  width: 3vw;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10; 
+  cursor: pointer
+}
+
+.arrow_prev {
+  left: 0;
+  position: absolute;
+}
+
+.arrow_next {
+  right: 0;
+  position: absolute;
+}
+
+.arrow img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.title {
+    width: 50%;
+}
+
+.imageContainer {
+    height: 80%;
+}
+
+.image {
+    height: 100%;
+    max-height: 100%;
+}
+
+.backgroundColor__aqua {
+    background-color: #AFCAC8;
+}
+
+.backgroundColor__pink {
+    background-color: #FABFBD;
+}
+
+.shadow__carve-green {
+    color: transparent;
+    background-color: var(--color__dGreen);
+    text-shadow: 0px 3px 2px var(--color__black--transparent);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+}
+
+.XXL {
+    font-size: var(--fontSize_XXL);
+}
+
+.XL {
+    font-size: var(--fontSize_XL);
+}
+
+.L {
+    font-size: var(--fontSize_L);
+}
+
+.M {
+    font-size: var(--fontSize_M);
+}

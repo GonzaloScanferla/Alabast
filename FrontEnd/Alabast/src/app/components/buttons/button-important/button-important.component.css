@@ -1,5 +1,6 @@
 
 .button {
+    height: 55px;
     display: flex;
     padding: 10px 15px;
     gap: 8px;
