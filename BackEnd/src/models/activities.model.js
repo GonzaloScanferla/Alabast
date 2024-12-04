@@ -21,8 +21,13 @@ const getByCategory = (category, limit, offset) => {
     return db.query("select * from activities where active = 1 and (select id from categories where name = ?) limit ? offset ?", [category, limit, offset]);
 }
 
+const getCategories = () => {
+    return db.query("select * from categories")
+}
+
 
 module.exports = {
     getAll,
-    getByCategory
+    getByCategory,
+    getCategories
 }
