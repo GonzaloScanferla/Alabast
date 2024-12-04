@@ -1,7 +1,7 @@
-const getAll_IdTitle = (limit, offset) => {
-    return db.query ("select id, title from activities where active = true limit ? offset ?", [limit, offset])
+const getAll = (limit, offset) => {
+    return db.query ("select * from activities where active = 1 limit ? offset ?", [limit, offset])
 }
 
 module.exports = {
-    getAll_IdTitle
+    getAll
 }

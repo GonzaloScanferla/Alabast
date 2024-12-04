@@ -1,6 +1,6 @@
 const router = require("express").Router()
-const { getAllActivities_IdTitle } = require("../../controllers/activities.controller")
+const { getAllActivities } = require("../../controllers/activities.controller")
 
-router.get("/IdTitle", getAllActivities_IdTitle)
+router.get("/", getAllActivities)
 
 module.exports = router
