@@ -1,8 +1,16 @@
 const Activities = require("../models/activities.model");
 const { getAllCount } = require("../models/common.model");
-const getPaginationData = require("../common/utils");
+const {getPaginationData, getImages} = require("../common/utils");
 
-const getAllActivities_IdTitle = async (req, res, next) => {
+/**
+ * Controller to fetch the information for activities in paginated format.
+ * 
+ * @param {import('express').Request} req - The HTTP request object.
+ * @param {import('express').Response} res - The HTTP response object.
+ * @param {Function} next - The middleware function to pass control to the next middleware.
+ * @returns {Promise<void>} Sends a JSON response with paginated activity data and metadata.
+ */
+const getAllActivities = async (req, res, next) => {
     try {
         const page = parseInt(req.query.page) || 1;
         const limit = parseInt(req.query.limit) || 10;
@@ -11,7 +19,7 @@ const getAllActivities_IdTitle = async (req, res, next) => {
         const results = {};
 
         // Fetch paginated results and total count
-        const [result] = await Activities.getAll_IdTitle(limit, offset);
+        const [result] = await Activities.getAll(limit, offset);
         const [[usersCount]] = await getAllCount("users");
 
         // Extract pagination details
@@ -19,6 +27,8 @@ const getAllActivities_IdTitle = async (req, res, next) => {
 
         results.data = result;
         results.pagination = pagination;
+
+        // getImages (req.query.folder, )
 
         res.json(results);
 
@@ -28,5 +38,5 @@ const getAllActivities_IdTitle = async (req, res, next) => {
 }
 
 module.exports = {
-    getAllActivities_IdTitle
+    getAllActivities
 }
