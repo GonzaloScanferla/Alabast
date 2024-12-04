@@ -1,6 +1,8 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { CardMicroComponent } from '../../card-micro/card-micro.component';
 import { ButtonMoreComponent } from '../button-more/button-more.component';
+import { IActivitiesResponse, IActivity } from '../../../interfaces/iactivity-interface.interface';
+import { ActivitiesService } from '../../../services/activities.service';
 
 interface ICategory {
   text: string,
@@ -15,6 +17,9 @@ interface ICategory {
   styleUrl: './button-category.component.css'
 })
 export class ButtonCategoryComponent {
+  activitiesService = inject (ActivitiesService) 
+  arrActivities: IActivity[] = []
+  activitiesResponse: IActivitiesResponse = { data: []}
 
   buttonContent: ICategory [] = [
     {
@@ -38,8 +43,11 @@ export class ButtonCategoryComponent {
       expanded: false
     },
   ] 
-
-  openMenu(item: ICategory, event: Event): void {
+  
+  async openMenu(item: ICategory, event: Event): Promise<void> {
+    this.activitiesResponse = await this.activitiesService.getAllActivities(1, 12)
+    this.arrActivities = this.activitiesResponse.data
+    
     event.stopPropagation(); // Prevent the click event from propagating to the document 
     // Close all other menus
     this.buttonContent.forEach(i => {

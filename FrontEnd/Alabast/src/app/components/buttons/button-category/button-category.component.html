@@ -8,15 +8,11 @@
         @if (item.expanded){
             <div class="absolute left-1/2 z-10 mt-5 -translate-x-1/2 translate-y-16 overflow-hidden bg-white bg-opacity-85 shadow-lg ring-1 ring-gray-900/5 overlay p-7">
                 <div class=" grid grid-cols-3 gap-4 ">
-                    <app-card-micro></app-card-micro>
-                    <app-card-micro></app-card-micro>
-                    <app-card-micro></app-card-micro>
-                    <app-card-micro></app-card-micro>
-                    <app-card-micro></app-card-micro>
-                    <app-card-micro></app-card-micro>
-                    <app-card-micro></app-card-micro>
+                    @for (activity of this.arrActivities; track activity.id) {
+                        <app-card-micro [currentActivity]="activity"></app-card-micro>
+                    }
                 </div>
-                <div class="flex justify-end">
+                <div class="flex justify-end pt-3">
                     <app-button-more [input_text]="'VEURE MÉS'" [icon]="'chevron_right'"></app-button-more>
                 </div>
             </div>

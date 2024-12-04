@@ -1,6 +1,6 @@
 const Users = require("../models/users.model");
 const { getAllCount } = require("../models/common.model");
-const getPaginationData = require("../common/utils");
+const {getPaginationData} = require("../common/utils");
 
 /**
  * Fetches all users with pagination options.
