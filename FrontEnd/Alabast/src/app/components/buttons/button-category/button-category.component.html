@@ -1,8 +1,8 @@
 <div class="flex gap-1">
-    @for (item of buttonContent; track $index) {
+    @for (item of arrCategories; track item.id) {
         <button class="relative button flex flex-col px-2 pt-2 pb-1" [attr.aria-expanded]="item.expanded" (click)="openMenu(item, $event)">
             <span class="material-symbols-outlined align-middle">{{item.icon}}</span>
-            <p class="buttonText p--small">{{item.text}}</p>
+            <p class="buttonText p--small">{{item.name}}</p>
             <span class="material-symbols-outlined align-middle">keyboard_arrow_down</span>
         </button>
         @if (item.expanded){
@@ -10,6 +10,8 @@
                 <div class=" grid grid-cols-3 gap-4 ">
                     @for (activity of this.arrActivities; track activity.id) {
                         <app-card-micro [currentActivity]="activity"></app-card-micro>
+                    }@empty {
+                        <app-spinner></app-spinner>
                     }
                 </div>
                 <div class="flex justify-end pt-3">

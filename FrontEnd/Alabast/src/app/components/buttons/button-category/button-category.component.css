@@ -17,11 +17,33 @@
 .overlay {
     width: 700px;
     height: 400px;
-    overflow: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+}
 }
 
-.overlay ::-webkit-scrollbar {
-  display: none; 
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

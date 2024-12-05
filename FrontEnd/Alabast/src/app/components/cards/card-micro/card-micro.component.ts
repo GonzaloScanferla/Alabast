@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IActivity } from '../../interfaces/iactivity-interface.interface';
+import { IActivity } from '../../../interfaces/iactivity-interface.interface';
 
 @Component({
   selector: 'app-card-micro',
