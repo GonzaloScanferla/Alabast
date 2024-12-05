@@ -1,63 +1,44 @@
 import { Component, HostListener, inject } from '@angular/core';
-import { CardMicroComponent } from '../../card-micro/card-micro.component';
+import { CardMicroComponent } from '../../cards/card-micro/card-micro.component';
 import { ButtonMoreComponent } from '../button-more/button-more.component';
 import { IActivitiesResponse, IActivity } from '../../../interfaces/iactivity-interface.interface';
 import { ActivitiesService } from '../../../services/activities.service';
+import { ICategory } from '../../../interfaces/icategory.interface';
+import { SpinnerComponent } from '../../utils/spinner/spinner.component';
 
-interface ICategory {
-  text: string,
-  icon: string,
-  expanded: boolean
-}
+
 
 @Component({
   selector: 'app-button-category',
-  imports: [CardMicroComponent, ButtonMoreComponent],
+  imports: [CardMicroComponent, ButtonMoreComponent, SpinnerComponent],
   templateUrl: './button-category.component.html',
   styleUrl: './button-category.component.css'
 })
 export class ButtonCategoryComponent {
   activitiesService = inject (ActivitiesService) 
   arrActivities: IActivity[] = []
-  activitiesResponse: IActivitiesResponse = { data: []}
-
-  buttonContent: ICategory [] = [
-    {
-      text: "Fires i Mercats",
-      icon: "storefront",
-      expanded: false
-    },
-    {
-      text: "Gastronomia",
-      icon: "grocery",
-      expanded: false
-    },
-    {
-      text: "Experiències",
-      icon: "spa",
-      expanded: false
-    },
-    {
-      text: "Activitats",
-      icon: "groups",
-      expanded: false
-    },
-  ] 
+  activitiesResponse: IActivitiesResponse = { data: [] }
+  arrCategories : ICategory [] = []
+  
+  async ngOnInit() {
+    this.arrCategories = await this.activitiesService.getAllCategories()
+  }
   
   async openMenu(item: ICategory, event: Event): Promise<void> {
-    this.activitiesResponse = await this.activitiesService.getAllActivities(1, 12)
+    console.log (item.id)
+    this.activitiesResponse = await this.activitiesService.getActivitiesByCategory(item.id, 1, 12)
     this.arrActivities = this.activitiesResponse.data
     
     event.stopPropagation(); // Prevent the click event from propagating to the document 
     // Close all other menus
-    this.buttonContent.forEach(i => {
+    this.arrCategories.forEach(i => {
       if (i !== item) { i.expanded = false; }
     });
     // Toggle the clicked menu
     item.expanded = !item.expanded;
   }
   @HostListener('document:click', ['$event']) closeMenus(event: Event): void {
-      this.buttonContent.forEach(item => {
+      this.arrCategories.forEach(item => {
       item.expanded = false;
     })
   }
