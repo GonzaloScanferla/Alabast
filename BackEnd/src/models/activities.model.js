@@ -18,7 +18,7 @@ const getAll = (limit, offset) => {
  * @returns {Promise} - A promise that resolves to the result of the database query.
  */
 const getByCategory = (category, limit, offset) => {
-    return db.query("select * from activities where active = 1 and (select id from categories where name = ?) limit ? offset ?", [category, limit, offset]);
+    return db.query("select * from activities where active = 1 and category_id = ? limit ? offset ?", [category, limit, offset]);
 }
 
 const getCategories = () => {

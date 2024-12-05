@@ -30,4 +30,4 @@ const getPaginationData = (page, limit, totalCount) => {
 
 
 
-module.exports = getPaginationData
+module.exports = {getPaginationData}
